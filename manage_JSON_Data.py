@@ -113,12 +113,14 @@ class json_Data_Wrapper:
 
     def get_dict_entry(self,num_word):
         try:
-            if isinstance(num_word,numbers.Number):
-                return num_word, self.json_data[num_word]
+            if not isinstance(num_word,numbers.Number):
+                print num_word
+                return num_word, self.name_dict[num_word]
             else:
                 for x,y in self.name_dict.iteritems():
-                    if x == this_client:
+                    if y == num_word:
                         return x,y
+            return "invalid","invalid"
         except:
             return "invalid","invalid"
 

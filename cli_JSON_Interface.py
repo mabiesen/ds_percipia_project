@@ -2,14 +2,15 @@
 # responsible for formatting and printing
 import os
 import subprocess
+import numbers
 from manage_JSON_Data import json_Data_Wrapper
 
 # responsible for business logic + printing
 # user entries interface with json data here
 class ds_Fetch_Wrapper:
 
-    def __init__(self):
-        self.mydata = json_Data_Wrapper("somename",'name')
+    def __init__(self, thisurl, this_top_field):
+        self.mydata = json_Data_Wrapper(thisurl,this_top_field)
 
     def get_whole_company():
         pass
@@ -88,8 +89,7 @@ class ds_Fetch_Wrapper:
         # create url
         # if client is name, convert
         url = ""
-        chrome_path="C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
-        if True:
+        if isinstance(client,numbers.Number):
             url = "https://ds.percipia.net/?site=" + str(client)
         else:
             client = self.mydata.name_dict[client]
@@ -99,7 +99,7 @@ class ds_Fetch_Wrapper:
 
     def get_client_reference(self, num_word):
         key, val = self.mydata.get_dict_entry(num_word)
-        print(str(key) + "\t" + str(val))
+        print(str(value) + "\t" + str(key))
 
 
     def pretty_print_json(self):
