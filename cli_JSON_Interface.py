@@ -9,7 +9,7 @@ from manage_JSON_Data import json_Data_Wrapper
 class ds_Fetch_Wrapper:
 
     def __init__(self):
-        self.mydata = json_Data_Wrapper("https://ds.percipia.net/json.php?key=tzpbIHEDplsU_JRasqQJ",'name')
+        self.mydata = json_Data_Wrapper("somesite",'name')
 
     def get_whole_company():
         pass
