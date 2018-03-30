@@ -9,7 +9,7 @@ from manage_JSON_Data import json_Data_Wrapper
 class ds_Fetch_Wrapper:
 
     def __init__(self):
-        self.mydata = json_Data_Wrapper("somesite",'name')
+        self.mydata = json_Data_Wrapper("somename",'name')
 
     def get_whole_company():
         pass
