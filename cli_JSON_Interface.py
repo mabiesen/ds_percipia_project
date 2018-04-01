@@ -18,7 +18,7 @@ class ds_Fetch_Wrapper:
         self.myfetcher = load_Json()
 
         #url to fetch
-        self.fetchurl = "https://ds.percipia.net/json.php?key=tzpbIHEDplsU_JRasqQJ"
+        self.fetchurl = "bogos"
 
         #filename for json storage
         self.json_filename = "C:\\Users\\mabie\\Downloads\\json_ds.txt"
