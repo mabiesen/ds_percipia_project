@@ -12,6 +12,14 @@ Easily access information, ssh into machines, etc.
 
 ## USAGE
 
+python cli.py runs the Program
+
+must add arguments appropriate to output
+
+see below for options
+
+#### HELP INFO
+
 -l Alt:  --list-all.  Lists all clients and their ids.  This option requires no arguments.  NOTE:  All commands can use either client name or id, this is useful!
 
 -s Alt:  --ssh. Ssh into selected product. This option requires client and product, separated by comma
