@@ -17,11 +17,16 @@ dis = ds_Fetch_Wrapper()
 # PASSED
 #dis.pretty_print_json()
 
+dis.get_all_for_client(75)
+
+# Passed
+#dis.get_client_notes("Amangiri")
+
 # Passed - both number and name
 #dis.get_client_reference(77)
 
 #
-dis.ssh_into(21,"Parallax")
+#dis.ssh_into(21,"Parallax")
 
 #  NEED FORM ENTRY
 # dis.goto_client_page(77)

@@ -18,7 +18,7 @@ class ds_Fetch_Wrapper:
         self.myfetcher = load_Json()
 
         #url to fetch
-        self.fetchurl = "bogos"
+        self.fetchurl = "barnacles"
 
         #filename for json storage
         self.json_filename = "C:\\Users\\mabie\\Downloads\\json_ds.txt"
@@ -57,18 +57,19 @@ class ds_Fetch_Wrapper:
             except:
                 pass
             if isinstance(num_word, numbers.Number):
+                print("here")
                 for x,y in self.name_json_dict.iteritems():
                     if y['id'] == num_word:
                         return y
             else:
                 return self.name_json_dict[num_word]
         except:
-            return {id: 'invalid', name: 'invalid'}
+            return {'id': 'invalid', 'name': 'invalid'}
 
 ########################### End Dictionary Methods ##########################
 
 #############################################################################
-# GENERICS, USED FOR GETTING PRODUCTS, CONTACTS, VENDORS
+# GENERICS, USED FOR GETTING THINGS FOR ALL CLIENTS
     # Contact, etc.
     def get_top_section_all_clients(self,this_field):
         print("Here are all clients listed by reference id:\n\n")
@@ -82,7 +83,18 @@ class ds_Fetch_Wrapper:
            print("This is the section detail for client " +str(this_client)+ " for field " + this_field + "\n")
            self.mydatamanager.pretty_print_json(client_field_json)
 
+    def list_all_clients(self):
+        print("Here is a list of clients and their associated table ID:\n\n")
+        for x,y in self.name_json_dict.iteritems():
+            print(str(y["id"]) + "\t" + x)
+
+    def pretty_print_json(self):
+        self.mydatamanager.pretty_print_json(self.json_data)
+
 ########################### End Generics ###################################
+
+###########################################################################
+# BELOW THIS LINE FETCHES SPECIFIC CLIENT INFO
 
     # used to find empty contacts, empty products, empty
     def audit_clients():
@@ -115,7 +127,7 @@ class ds_Fetch_Wrapper:
         # Find machine IP, user, password
         ip = self.mydatamanager.get_level_two_field(client_json,"product", "name", product,"ip")
 
-        get_client_product_info(client,product):
+        self.get_client_product_info(client,product)
 
         # Open putty, input and execute ssh
         cmd = "/cygdrive/c/Program\ Files/PuTTY/putty.exe -ssh "+ ip +" 22"
@@ -131,11 +143,11 @@ class ds_Fetch_Wrapper:
     # open vpn methods, possibly input data
     def open_vpn():
         pass
+
     #
     def goto_client_page(self,num_word):
         client_json = self.get_json_from_name_or_id(num_word)
         url = "https://ds.percipia.net/?site=" + str(client_json['id'])
-
         subprocess.call(["cygstart", url])
 
     # return the ID and name of client
@@ -143,14 +155,11 @@ class ds_Fetch_Wrapper:
         client_json = self.get_json_from_name_or_id(num_word)
         print(str(client_json['id']) + "\t" + str(client_json['name']))
 
-    def list_all_clients(self):
-        print("Here is a list of clients and their associated table ID:\n\n")
-        for x,y in self.name_json_dict.iteritems():
-            print(str(y["id"]) + "\t" + x)
-
-    def get_all_for_client(num_word):
+    def get_all_for_client(self,num_word):
         client_json = self.get_json_from_name_or_id(num_word)
         self.mydatamanager.pretty_print_json(client_json)
 
-    def pretty_print_json(self):
-        self.mydatamanager.pretty_print_json(self.json_data)
+    def get_client_notes(self,num_word):
+        client_json = self.get_json_from_name_or_id(num_word)
+        print("Notes for Client " + client_json['name']+ "\n\n")
+        print(client_json['note'])
