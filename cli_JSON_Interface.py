@@ -21,6 +21,7 @@ class ds_Fetch_Wrapper:
         self.fetchurl = "barnacles"
 
         #filename for json storage
+        temp = os.getlogin()
         self.json_filename = "C:\\Users\\mabie\\Downloads\\json_ds.txt"
 
         # get json data
