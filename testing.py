@@ -1,28 +1,30 @@
 from cli_JSON_Interface import ds_Fetch_Wrapper
-
+import pprint
 ## Main Testing
-dis = ds_Fetch_Wrapper("blah",'name')
+dis = ds_Fetch_Wrapper()
+
+#PASS
+#dis.get_top_section_all_clients('contact')
+
+#PASS
+#dis.get_top_section_one_client(77,'product')
+
+# pprint(dis.mydata.json_data["Amangiri"]["product"])
 
 # PASSED
-# dis.get_top_section_all_clients('contact')
+#dis.list_all_clients()
 
 # PASSED
-# dis.get_top_section_one_client(21,'product')
+#dis.pretty_print_json()
 
-# PASSED
-dis.list_all_clients()
+# Passed - both number and name
+#dis.get_client_reference(77)
 
-# PASSED
-# dis.pretty_print_json()
-
-# PASSED
-dis.get_client_reference(73)
-
-# PASSED
-# dis.ssh_into(21,"Parallax")
+#
+dis.ssh_into(21,"Parallax")
 
 #  NEED FORM ENTRY
-# dis.goto_client_page(79)
+# dis.goto_client_page(77)
 
 # dis.open_vpn()
 # dis.audit_clients()
