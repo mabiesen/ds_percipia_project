@@ -58,7 +58,7 @@ class json_Data_Wrapper:
             
             if len(matches) > 1:
                 print("This client has multiple results for your query on " + second_field_key + " under " + top_field_key)
-                print("Just letting you know.  The result you are receiving is the first match.")
+                print("Just letting you know.  The result you are receiving is the first match.\n")
 
             # get the first login requested field
             value = matches[0][third_field_key][0][return_field_key]
