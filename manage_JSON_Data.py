@@ -53,7 +53,7 @@ class json_Data_Wrapper:
             # get the correct product, if multilple alert user but return first
             matches = []
             for g in x:
-                if g[second_field_key] == second_field_value:
+                if second_field_value.lower() in g[second_field_key].lower():
                     matches.append(g)
             
             if len(matches) > 1:
@@ -72,8 +72,8 @@ class json_Data_Wrapper:
         x = this_json[top_field]
         for g in x:
             for a,b in g.iteritems():
-                if a == check_field_key:
-                    if b == check_field_value:
+                if check_field_key.lower() in a.lower():
+                    if check_field_value.lower() in b.lower():
                         return g[return_field_key]
         return "invalid"
 
