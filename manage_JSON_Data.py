@@ -70,7 +70,7 @@ class json_Data_Wrapper:
             for a,b in g.iteritems():
                 if a == check_field_key:
                     if b == check_field_value:
-                        return x[0][return_field_key]
+                        return g[return_field_key]
         return "invalid"
 
     #PASS
